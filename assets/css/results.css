@@ -1,0 +1,51 @@
+body{
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/25/21/08/american-flag-2260839_960_720.jpg);
+    font-family: 'Cinzel', serif;
+}
+
+#titleBar{
+    background-color: rgb(255,187,0);
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 42px;
+}
+
+.jumbotron{
+    background-color:rgb(255,187,0);
+    padding: 2rem 1rem;
+}
+p{
+    color: white;
+    text-align: center;
+    text-shadow: 3px 2px orangered;
+    font-size: 109px;
+    margin-top: 0;
+    margin-bottom: -1rem;
+}
+
+p2{
+    color: white;
+    text-shadow: 3px 2px orangered;
+    font-size: 23px;
+}
+
+#results{
+    background-color:navy;
+    margin-top: -15px;
+    margin-bottom: 26px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+.well{
+    background-color: orange;
+    color:navy;
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 1;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    margin-left: -9px;
+    margin-right: -10px;
+}

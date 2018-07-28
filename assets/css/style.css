@@ -1,0 +1,156 @@
+.jumbotron {
+    padding: 2;
+    margin-bottom:auto;
+    background-color:rgb(255, 187, 0);
+    border-radius:(5);
+    border-color: green;
+}
+
+h1 {
+    font-family: 'Cinzel',serif;
+    color: white;
+    text-align: center;
+    text-shadow:2px 2px orangered;
+    font-size: 130px;
+    color: white;
+    text-shadow: -1px 0 orangered, 0 1px orangered, 1px 0 orangered, 0 -1px orangered, 2px 1.7px orangered;
+}
+h2{
+    font-family: 'Cinzel',serif;
+    color: white;
+    text-align: center;
+    text-shadow:-1px 0 orangered, 0 1px orangered, 1px 0 orangered, 0 -1px orangered, 1px 1px orangered;
+}
+
+body{
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/25/21/08/american-flag-2260839_960_720.jpg);
+    font-family: 'Cinzel', serif;
+}
+
+#politifacts-banner{
+    background-color:navy;
+    margin-top: -15px;
+    margin-bottom: 26px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+.well{
+    background-color: orange;
+    color:navy;
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 1;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    margin-left: -9px;
+    margin-right: -10px;
+}
+
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: white;
+}
+
+.major-row {
+    margin-bottom: 30px;
+}
+
+.hideThis {
+    display: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+#mainTable table,
+th,
+td {
+    border: 1px solid black;
+}
+
+#mainTable table {
+    width: 100%;
+    background-color: darkgray;
+}
+
+#mainTable th {
+    width: 20%;
+    center: center;
+}
+
+.break {
+    border-width: 3px;
+    color: black
+}
+
+p {
+    text-align: center;
+    margin: 20px;
+}
+
+.ruling {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.head {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: center;
+    padding: 20px
+}

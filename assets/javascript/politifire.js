@@ -63,7 +63,21 @@ $(document).ready(function () {
 
     // Event Listen for the go button
     $("#goButton").on("click", function (event) {
+        googleCivic();
+    });
+
+    $("#inputAddress").keydown(function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            googleCivic();
+        }
+    });
+
+    function googleCivic() {
+        $(".tab").empty();
+        $(".insert-tab-content-here").empty();
         database.ref("/officials").remove();
+        officialsArray = [];
 
         // Don't refresh the page!
         event.preventDefault();
@@ -167,14 +181,12 @@ $(document).ready(function () {
             }
 
             // Calling HTML generation for each politician
-            generateHTML();
+            setTimeout(generateHTML(), 3000);
 
         }).fail(function (err) {
             throw err;
         });
-
-
-    });
+    }
 
     // Function that receives 2 parameters, the official's name and the div location to append data to
     function polifactsQuery(namesearch, divlocation) {
@@ -183,25 +195,25 @@ $(document).ready(function () {
         // Lower-case all letters and replace all spaces with hypens to meet formatting criteria for politifacts json query
         queryName = namesearch.replace(/\s+/g, '-').toLowerCase();
 
-        $.getJSON("http://www.politifact.com/api/statements/truth-o-meter/people/" + queryName + "/json/?n=3&callback=?",
+        $.getJSON("https://www.politifact.com/api/statements/truth-o-meter/people/" + queryName + "/json/?n=3&callback=?",
             function (data) {
 
                 if ((data === undefined) || (data.length == 0)) {
-                    $("#"+divlocation).append("No statements found on Politifacts");
+                    $("#" + divlocation).append("No statements found on Politifacts");
                 } else {
 
                     var pfHTML4 = '<table id="mainTable"> ';
 
-                    $.each(data, function (index, item) { 
-                        index = index + 1; 
-    
+                    $.each(data, function (index, item) {
+                        index = index + 1;
+
                         pfHTML4 += '<tr class="clickable-row " data-href="https://www.sitepoint.com/community/t/how-to-center-link-in-middle-of-box/83850/3"> <th> <img class= "head" src="' + item.speaker.canonical_photo + '"></img></th>'
-    
+
                         pfHTML4 += '<td colspan="2">' + '<a href="' + "https://www.politifact.com" + item.statement_url + '" target="_blank">' + item.ruling_headline + '</a></h3>';
                         pfHTML4 += '<hr class= "break"><p>' + item.statement + '&nbsp;</td>'
                         pfHTML4 += '<th><img class= "ruling" src="' + item.ruling.canonical_ruling_graphic + '" alt="' + item.ruling_headline + '" /> </th></tr>';
                     });
-    
+
                     // Appends the results to the passed divlocation found in the parameters
                     $("#" + divlocation).append(pfHTML4);
                 }
@@ -211,6 +223,9 @@ $(document).ready(function () {
 
     // Function that dynamically generates the results data from Google Civic ajax call and displays for the user
     function generateHTML() {
+        $(".tab").empty();
+        $(".insert-tab-content-here").empty();
+
 
         for (var x = 0; x < officialsArray.length; x++) {
 
@@ -297,10 +312,10 @@ $(document).ready(function () {
             politifactsBannerDIV.html("Politifact Results");
             politifactsContainerDiv.append(politifactsBannerDIV);
 
-            var politifactsResultsRowDIV = $("<div>").attr({class : "row politfacts-results text-center justify-contenter-center"});
+            var politifactsResultsRowDIV = $("<div>").attr({ class: "row politfacts-results text-center justify-contenter-center" });
             infoDIV.append(politifactsResultsRowDIV);
 
-            var politfactsResultsColDiv = $("<div>").attr({id: "politifacts-results-" + x, class: "col-12 w-25 p-1"});
+            var politfactsResultsColDiv = $("<div>").attr({ id: "politifacts-results-" + x, class: "col-12 w-25 p-1" });
             politifactsResultsRowDIV.append(politfactsResultsColDiv);
 
             // calls politifacts json query to add relevant politifacts data and truth-o-meter img
